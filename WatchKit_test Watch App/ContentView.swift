@@ -8,16 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+  
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+
+      @State var  animals = ["🐶", "🐱", "🐥", "🐹"]
+
+        
+               List {
+                   ForEach(animals, id: \.self) { item in
+                       NavigationLink(
+                           destination: Text(item),
+                           label: {
+                               Text(item)
+                           }
+                       )
+                   }
+               }
+           
+       
     }
 }
+
 
 #Preview {
     ContentView()
